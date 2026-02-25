@@ -1,3 +1,4 @@
+#
 numero = int(input("Digite um número inteiro: "))
 
 divisores = 0
