@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>GDPR Chat Lab</h2>
+    <input type="text" id="msg" placeholder="Escreve algo com NIF ou Email...">
+    <button onclick="enviarMensagem()">Enviar</button>
+    <div id="chat"></div>
+
+    <script>
+        async function enviarMensagem() {
+            const input = document.getElementById('msg');
+            const response = await fetch('/enviar', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({mensagem: input.value})
+            });
+            const data = await response.json();
+            document.getElementById('chat').innerHTML += 
+                `<p><b>Tu:</b> ${data.original}<br><b>Sistema:</b> ${data.filtrada}</p><hr>`;
+            input.value = '';
+        }
+    </script>
+</body>
+</html>
