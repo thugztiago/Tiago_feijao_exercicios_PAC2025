@@ -1,0 +1,8 @@
+d1 = {'a': 1, 'b': 2}
+d2 = {'c': 3, 'd': 4}
+
+# Método moderno (Python 3.9+)
+d3 = d1 | d2
+# OU usando update: d3 = d1.copy(); d3.update(d2)
+
+print(d3)
